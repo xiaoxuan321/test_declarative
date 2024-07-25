@@ -1,0 +1,65 @@
+---
+name: Test-amodels
+author: xiaoxuan
+version: 1
+description: Compare declarative process models to procedural process models .
+
+services:
+  Test_inductive_petri_Container:
+    build:
+      context: .    # 确保context路径正确，即使Dockerfile在项目的当前目录
+  Test_inductive_process_tree_Container:
+    build:
+      context: .
+  Test_inductive_bpmn_Container:
+    build:
+      context: .
+  Test_temporal_profile_Container:
+    build:
+      context: .
+  Test_log_skeleton_Container:
+    build:
+      context: .
+  Test_declare_Container:
+    build:
+      context: .
+
+
+flow:
+  - name: Test inductive petri
+    container: Test_inductive_petri_Container
+    commands:
+      - type: console
+        command: python /app/test_declarative_process.py inductive_petri
+        note: Running test inductive petri
+  - name: Test inductive process tree
+    container: Test_inductive_process_tree_Container
+    commands:
+      - type: console
+        command: python /app/test_declarative_process.py inductive_process_tree
+        note: Running test inductive process tree
+  - name: Test inductive bpmn
+    container: Test_inductive_bpmn_Container
+    commands:
+      - type: console
+        command: python /app/test_declarative_process.py inductive_bpmn
+        note: Running test inductive bpmn
+  - name: Test temporal profile
+    container: Test_temporal_profile_Container
+    commands:
+      - type: console
+        command: python /app/test_declarative_process.py temporal_profile
+        note: Running test temporal profile
+  - name: Test log skeleton
+      container: Test_log_skeleton_Container
+      commands:
+        - type: console
+          command: python /app/test_declarative_process.py log_skeleton
+          note: Running test log skeleton
+  - name: Test declare
+      container: Test_declare_Container
+      commands:
+        - type: console
+          command: python /app/test_declarative_process.py declare
+          note: Running test declare
+
