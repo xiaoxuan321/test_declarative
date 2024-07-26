@@ -51,15 +51,15 @@ flow:
         command: python /app/test_declarative_process.py temporal_profile
         note: Running test temporal profile
   - name: Test log skeleton
-      container: Test_log_skeleton_Container
-      commands:
-        - type: console
-          command: python /app/test_declarative_process.py log_skeleton
-          note: Running test log skeleton
+    container: Test_log_skeleton_Container
+    commands:
+      - type: console
+        command: python /app/test_declarative_process.py log_skeleton
+        note: Running test log skeleton
   - name: Test declare
-      container: Test_declare_Container
-      commands:
-        - type: console
-          command: python /app/test_declarative_process.py declare
-          note: Running test declare
+    container: Test_declare_Container
+    commands:
+      - type: console
+        command: python /app/test_declarative_process.py declare
+        note: Running test declare
 
